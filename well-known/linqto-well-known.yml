@@ -1,0 +1,87 @@
+generated: '2026-08-01'
+method: probed
+source: live GET probes of /.well-known/* and contract-discovery paths
+result: none
+summary: Linqto publishes no /.well-known/ discovery documents on any of its hosts. Every
+  probe against www.linqto.com and api.app.linqto.com returned a real 404. app.linqto.com
+  is a single-page application whose catch-all returns HTTP 200 with the SPA HTML shell for
+  every unknown path, so its 200s are false positives and are recorded as rejected.
+hosts:
+- host: https://www.linqto.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://api.app.linqto.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://app.linqto.com
+  note: SPA catch-all - all paths answer 200 with the same HTML shell; treated as no-hit
+  documents:
+  - {path: /.well-known/security.txt, status: 200, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/openid-configuration, status: 200, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/oauth-authorization-server, status: 200, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/agent-card.json, status: 200, accepted: false, reason: html-spa-shell}
+  - {path: /.well-known/agent.json, status: 200, accepted: false, reason: html-spa-shell}
+  - {path: /llms.txt, status: 200, accepted: false, reason: html-spa-shell}
+contract_discovery:
+  performed: '2026-08-01'
+  outcome: no-public-machine-readable-contract
+  openapi:
+    found: false
+    probed:
+    - {url: 'https://www.linqto.com/openapi.json', status: 404}
+    - {url: 'https://www.linqto.com/openapi.yaml', status: 404}
+    - {url: 'https://www.linqto.com/swagger.json', status: 404}
+    - {url: 'https://www.linqto.com/api-docs', status: 404}
+    - {url: 'https://api.app.linqto.com/openapi.json', status: 404}
+    - {url: 'https://api.app.linqto.com/swagger.json', status: 404}
+    - {url: 'https://api.app.linqto.com/v3/api-docs', status: 404}
+    - {url: 'https://api.app.linqto.com/v3/api-docs.yaml', status: 404}
+    - {url: 'https://api.app.linqto.com/v2/api-docs', status: 404}
+    - {url: 'https://api.app.linqto.com/swagger-ui.html', status: 404}
+    - {url: 'https://api.app.linqto.com/swagger-ui/index.html', status: 404}
+    - {url: 'https://api.app.linqto.com/swagger-resources', status: 404}
+    - {url: 'https://api.app.linqto.com/actuator', status: 404}
+    - {url: 'https://app.linqto.com/openapi.json', status: 200, accepted: false, reason: html-spa-shell}
+    - {url: 'https://app.linqto.com/v1/openapi.json', status: 200, accepted: false, reason: html-spa-shell}
+  graphql:
+    found: false
+    probed:
+    - {url: 'https://api.app.linqto.com/graphql', status: 404}
+  mcp:
+    found: false
+    note: no hosted or published MCP server found in provider docs, npm, or MCP registries
+  agent_card:
+    found: false
+    note: no A2A agent card at either the canonical or legacy well-known path on any host
+  dns_only:
+    - {host: 'api.linqto.com', result: NXDOMAIN}
+    - {host: 'developer.linqto.com', result: NXDOMAIN}
+    - {host: 'docs.linqto.com', result: NXDOMAIN}
+    - {host: 'status.linqto.com', result: NXDOMAIN}
+  private_backend:
+    host: api.app.linqto.com
+    evidence: Spring-style JSON error envelopes ({"timestamp","status","error","path"}) with
+      every request internally rewritten under a /web2 prefix; the app.linqto.com JavaScript
+      bundle calls session-authenticated routes such as /api/1/page/kycStatus/documents and
+      /api/1/page/cashExternalAccount/wire.
+    public: false
+    note: This is the investor application's private backend, not a published developer API.
+      No spec, no documentation, and no anonymous access - deliberately NOT catalogued as a
+      Linqto API surface.
+  public_surfaces_found:
+  - {name: WordPress REST API, url: 'https://www.linqto.com/wp-json/', status: 200, routes: 472}
+  - {name: RSS feed, url: 'https://www.linqto.com/feed/', status: 200}

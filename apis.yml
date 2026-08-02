@@ -1,7 +1,21 @@
 aid: linqto
 name: Linqto
-description: 'Linqto is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: Linqto is a San Jose, California private-markets investment platform that
+  gives individual accredited investors access to equity in mid-to-late-stage private
+  technology companies before an IPO or acquisition. Rather than operating as a marketplace
+  intermediary, Linqto buys shares itself and delivers them to investors as units in a
+  series-LLC private fund ("Liquidshares") that holds the underlying company's stock,
+  with a stated single purchase-premium fee and no carry, profit, legal, or administrative
+  fees. Investing runs through a web and mobile application at app.linqto.com covering
+  accreditation and KYC/identity verification, a cash account funded by bank transfer or
+  wire, order placement, and portfolio and document management. The company filed for
+  Chapter 11 protection in the U.S. Bankruptcy Court for the Southern District of Texas
+  in 2025 and has paused transactions while continuing operations. Linqto publishes no
+  public developer API, SDK, OpenAPI, or developer portal; the only public machine-readable
+  surfaces are the WordPress REST API and RSS feed behind its marketing site, and the
+  investor application is served by a private, session-authenticated backend at
+  api.app.linqto.com. This profile captures company identity, the discovered public
+  surfaces, and the domain-security posture for the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/linqto/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -10,14 +24,101 @@ x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
+image: https://www.linqto.com/wp-content/uploads/2025/06/linqto_featureimage.jpg
 tags:
 - Company
-apis: []
+- Private Markets
+- Pre-IPO
+- Secondary Market
+- Investing
+- Fintech
+- Equity
+- Accredited Investors
+- Venture Capital
+apis:
+- aid: linqto:wordpress-rest-api
+  name: Linqto WordPress REST API
+  description: The linqto.com marketing, blog, and market-insights site runs on WordPress
+    and exposes the standard public WordPress REST API at /wp-json/. The route index
+    reports 472 routes across 19 namespaces (including wp/v2, oembed/1.0, yoast/v1 and
+    contact-form-7/v1), providing JSON access to posts, pages, categories, tags, authors
+    and media, with filtering, search and pagination. This is site infrastructure rather
+    than a Linqto product API — Linqto publishes no developer documentation for it — but
+    it is a real, anonymously callable, self-describing REST surface.
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://www.linqto.com/wp-json/wp/v2
+  tags:
+  - Content
+  - JSON
+  - REST
+  - WordPress
+  properties:
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: APIReference
+    url: https://developer.wordpress.org/rest-api/reference/
+  - type: Discovery
+    url: https://www.linqto.com/wp-json/
+- aid: linqto:rss-feed
+  name: Linqto Blog RSS Feed
+  description: Linqto publishes an RSS 2.0 feed of its blog and market-insights posts at
+    https://www.linqto.com/feed/ (also available at /blog/feed/), covering private-market
+    commentary, company profiles, and corporate news. The feed is anonymously readable and
+    consumable by any standard feed parser.
+  humanURL: https://www.linqto.com/blog/
+  baseURL: https://www.linqto.com/feed/
+  tags:
+  - Feed
+  - RSS
+  - Content
+  - Syndication
+  properties:
+  - type: RSSFeed
+    url: https://www.linqto.com/feed/
+  - type: Blog
+    url: https://www.linqto.com/blog/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/linqto-domain-security.yml
+- type: Packages
+  url: packages/linqto-packages.yml
+- type: LLMsTxt
+  url: llms/linqto-llms.txt
 - type: Website
-  url: https://forgeglobal.com/linqto_stock/
+  url: https://www.linqto.com/
+- type: Blog
+  url: https://www.linqto.com/blog/
+- type: RSSFeed
+  url: https://www.linqto.com/feed/
+- type: Support
+  url: https://app.linqto.com/contact
+- type: FAQ
+  url: https://www.linqto.com/faq/
+- type: GettingStarted
+  url: https://www.linqto.com/how-it-works/
+- type: GitHubOrganization
+  url: https://github.com/Linqto-Team
+- type: SignUp
+  url: https://app.linqto.com/signup
+- type: Login
+  url: https://app.linqto.com/signin
+- type: TermsOfService
+  url: https://www.linqto.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.linqto.com/privacy/
+- type: Press
+  url: https://www.linqto.com/press/
+- type: About
+  url: https://www.linqto.com/about/
+- type: AndroidApp
+  url: https://play.google.com/store/apps/details?id=com.linqto.investor.id
+x-enrichment:
+  date: '2026-08-01'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v1

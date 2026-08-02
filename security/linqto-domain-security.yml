@@ -1,0 +1,61 @@
+generated: '2026-08-01'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts + hosts discovered during contract discovery
+note: developer.wordpress.org (the humanURL of the WordPress REST API entry) is a third-party
+  documentation host and is excluded; only Linqto-operated hosts are recorded here.
+hosts:
+- host: www.linqto.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 29 17:26:49 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  http_status: 200
+  server: nginx (WordPress)
+- host: app.linqto.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb  5 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  http_status: 200
+  server: AmazonS3
+  note: single-page investor application; all unknown paths return the SPA HTML shell with 200
+- host: api.app.linqto.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Feb  4 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 63072000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  http_status: 404
+  server: Apache
+  note: private session-authenticated backend for the investor app; internally routes under
+    a /web2 prefix and returns Spring-style JSON 404 envelopes. Sends
+    'access-control-allow-origin +' and a restrictive frame-ancestors CSP. Not a public API.
+- host: blog.linqto.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Feb  4 23:59:59 2027 GMT
+  hsts: false
+  http_status: 301
+  server: awselb/2.0
+  note: redirects to https://www.linqto.com/blog/
+- host: help.linqto.com
+  https: false
+  tls_version: null
+  hsts: null
+  http_status: 409
+  note: DNS resolves to HubSpot knowledge-base hosting (group38.sites.hscoscdn30.net) but the
+    TLS certificate is not provisioned - HTTPS fails with a handshake_failure alert and HTTP
+    returns 409. The published help center is effectively unreachable.
+domains:
+- domain: linqto.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

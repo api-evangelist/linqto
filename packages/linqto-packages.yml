@@ -1,0 +1,49 @@
+generated: '2026-08-01'
+method: searched
+source: npm registry search, PyPI, RubyGems, NuGet, crates.io, and the github.com/Linqto-Team
+  organization
+summary: Linqto publishes no client SDK for any API. The single first-party package found on
+  any public registry is a fork of a third-party React UI carousel used inside its own
+  application, and every public repository in the Linqto-Team GitHub organization is a fork of
+  someone else's library or GitHub Action. No SDKs pointer is emitted, because no API client
+  library exists.
+sdk_count: 0
+packages:
+- language: javascript
+  registry: npm
+  name: '@linqto-team/react-responsive-carousel'
+  url: https://www.npmjs.com/package/@linqto-team/react-responsive-carousel
+  install: npm install @linqto-team/react-responsive-carousel
+  version: 1.0.0
+  published: '2022-11-29'
+  license: MIT
+  repository: https://github.com/Linqto-Team/react-responsive-carousel
+  official: true
+  api_client: false
+  kind: ui-component-fork
+  note: Linqto's fork of the community react-responsive-carousel component. Internal UI
+    dependency, not a client library for a Linqto API.
+registries_probed:
+- {registry: npm, query: linqto, hits: 1}
+- {registry: pypi, package: linqto, status: 404}
+- {registry: rubygems, package: linqto, status: 404}
+- {registry: nuget, query: linqto, first_party_hits: 0, note: matches are all LINQ-to-* .NET libraries, unrelated}
+- {registry: crates.io, query: linqto, hits: 0}
+- {registry: packagist, query: linqto, first_party_hits: 0}
+github_organization:
+  url: https://github.com/Linqto-Team
+  public_repos: 14
+  first_party_libraries: 0
+  note: all 14 public repos are forks (react-native-camera, react-native-blur, ios-build-action,
+    sign-android-release, upload-testflight-build, codepush-action, gitops-template,
+    fullstory-integrations, probity, canonical-wxrp, chains, and others). No Linqto-authored
+    SDK, spec, or API tooling is published.
+mobile_apps:
+- platform: android
+  url: https://play.google.com/store/apps/details?id=com.linqto.investor.id
+  package_id: com.linqto.investor.id
+  status: 200
+- platform: ios
+  url: https://apps.apple.com/us/app/linqto/id1464707632
+  status: 404
+  note: linked from linqto.com but the App Store listing did not resolve when probed
