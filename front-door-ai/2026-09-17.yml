@@ -1,0 +1,27 @@
+# Front Door AI Index — linqto — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: linqto
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.linqto.com
+  final_host: www.linqto.com
+  ownership: own
+  owner: linqto
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 4
+  host_score: 4
+  density: 4.99
+  words: 801
+  tiers:
+    agentic: 0
+    core: 4
+    model: 0
+  ambiguous: 3
+  top_terms:
+    artificial intelligence: 3
+    intelligence: 3
+    AI: 1
