@@ -59,29 +59,20 @@ tags:
 - Accredited Investors
 - Venture Capital
 apis:
-- aid: linqto:wordpress-rest-api
-  name: Linqto WordPress REST API
-  description: The linqto.com marketing, blog, and market-insights site runs on WordPress
-    and exposes the standard public WordPress REST API at /wp-json/. The route index
-    reports 472 routes across 19 namespaces (including wp/v2, oembed/1.0, yoast/v1 and
-    contact-form-7/v1), providing JSON access to posts, pages, categories, tags, authors
-    and media, with filtering, search and pagination. This is site infrastructure rather
-    than a Linqto product API — Linqto publishes no developer documentation for it — but
-    it is a real, anonymously callable, self-describing REST surface.
-  humanURL: https://developer.wordpress.org/rest-api/
-  baseURL: https://www.linqto.com/wp-json/wp/v2
+- aid: linqto:linqto-com-website-wordpress-rest
+  name: Linqto Website (WordPress REST)
+  description: 'The public WordPress REST API (wp-json) of the Linqto website at www.linqto.com: the route
+    index of the site''s content management system, catalogued as one site surface rather than as separate
+    APIs.'
+  baseURL: https://www.linqto.com/wp-json
   tags:
-  - Content
-  - JSON
-  - REST
   - WordPress
+  x-surface: platform-generated
   properties:
   - type: Documentation
-    url: https://developer.wordpress.org/rest-api/
-  - type: APIReference
-    url: https://developer.wordpress.org/rest-api/reference/
-  - type: Discovery
-    url: https://www.linqto.com/wp-json/
+    url: https://www.linqto.com/wp-json
+  x-platform: wordpress
+  x-platform-surface: rest
 - aid: linqto:rss-feed
   name: Linqto Blog RSS Feed
   description: Linqto publishes an RSS 2.0 feed of its blog and market-insights posts at
