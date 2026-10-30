@@ -64,38 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Linqto is a San Jose, California private-markets investment platform that gives individual
-accredited investors access to equity in mid-to-late-stage private technology companies before
-an IPO or acquisition. Rather than acting as a marketplace intermediary, Linqto buys shares
-itself and delivers them to investors as units in a series-LLC private fund ("Liquidshares")
-holding the underlying company's stock, charging a single purchase premium with no carry,
-profit, legal, or administrative fees. Investing runs through the web and mobile application at
-app.linqto.com. The company filed for Chapter 11 protection in the U.S. Bankruptcy Court for
-the Southern District of Texas in 2025 and has paused transactions while continuing operations.
+Linqto is a San Jose, California private-markets investment platform that gives individual accredited investors access to equity in mid-to-late-stage private technology companies before an IPO or acquisition. Rather than operating as a marketplace intermediary, Linqto buys shares itself and delivers them to investors as units in a series-LLC private fund ("Liquidshares") that holds the underlying company's stock, with a stated single purchase-premium fee and no carry, profit, legal, or administrative fees. Investing runs through a web and mobile application at app.linqto.com covering accreditation and KYC/identity verification, a cash account funded by bank transfer or wire, order placement, and portfolio and document management. The company filed for Chapter 11 protection in the U.S. Bankruptcy Court for the Southern District of Texas in 2025 and has paused transactions while continuing operations. Linqto publishes no public developer API, SDK, OpenAPI, or developer portal; the only public machine-readable surfaces are the WordPress REST API and RSS feed behind its marketing site, and the investor application is served by a private, session-authenticated backend at api.app.linqto.com. This profile captures company identity, the discovered public surfaces, and the domain-security posture for the API Evangelist network.
 
-- Website: https://www.linqto.com/
-- Application: https://app.linqto.com/
-- GitHub: https://github.com/Linqto-Team
+**Areas:** Company · Private Markets · Pre-IPO · Secondary Market · Investing · Fintech · Equity · Accredited Investors · Venture Capital
 
-## API surface
+## Linqto on APIs.io
 
-Linqto publishes **no public developer API, OpenAPI/Swagger specification, GraphQL endpoint,
-MCP server, A2A agent card, SDK, or developer portal.** Contract discovery on 2026-08-01 probed
-every candidate spec and `/.well-known/` path across `www.linqto.com`, `app.linqto.com`, and
-`api.app.linqto.com`; `api.linqto.com`, `developer.linqto.com`, `docs.linqto.com`, and
-`status.linqto.com` do not resolve. The investor application is served by a private,
-session-authenticated backend at `api.app.linqto.com` that publishes no contract and is
-deliberately not catalogued as an API surface.
+Everything profiled for Linqto is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/linqto/](https://apis.io/providers/linqto/)** — or go straight to one of the APIs or properties below.
 
-The only anonymously callable machine-readable surfaces are the WordPress REST API
-(`/wp-json/`, 472 routes) and the RSS feed behind the marketing site.
+### APIs (2)
 
-## Artifacts
+- [Linqto Website (WordPress REST)](https://apis.io/apis/linqto/linqto-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Linqto website at www.linqto.com: the route index of the site's content management system, catalogued as one…
+- [Linqto Blog RSS Feed](https://apis.io/apis/linqto/rss-feed/) — Linqto publishes an RSS 2.0 feed of its blog and market-insights posts at https://www.linqto.com/feed/ (also available at /blog/feed/), covering…
 
-| Path | What it records |
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Linqto Domain Security](https://apis.io/security/linqto/linqto-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.linqto.com/)
+- [Getting started](https://www.linqto.com/how-it-works/)
+- [Sign up](https://app.linqto.com/signup)
+- [Support](https://app.linqto.com/contact)
+- [Blog](https://www.linqto.com/blog/)
+- [Terms of service](https://www.linqto.com/terms-of-use/)
+- [Privacy policy](https://www.linqto.com/privacy/)
+- [GitHub](https://github.com/Linqto-Team)
+
+## API Evangelist rating
+
+**Kin Score 16.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `apis.yml` | Company identity, the two public surfaces, and link properties |
-| `well-known/linqto-well-known.yml` | `/.well-known/` + full contract-discovery probe record |
-| `packages/linqto-packages.yml` | Package-registry and GitHub-org search results (no SDK) |
-| `security/linqto-domain-security.yml` | Probed TLS / HSTS / DNSSEC / CAA / SPF / DMARC posture |
-| `llms/linqto-llms.txt` | Generated llms.txt for the provider |
+| Discoverability | 65.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 27.6 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/linqto/](https://apis.io/providers/linqto/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Linqto: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/linqto/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
